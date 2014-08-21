@@ -29,6 +29,8 @@
 
     <br>
 
-    <%= link_to 'New Todo', new_todo_path, class: 'btn btn-success' %>
+    <%= link_to new_todo_path, class: 'btn btn-success' do %>
+      <i class="glyphicon glyphicon-plus"></i> New Todo
+    <% end %>
   </div>
 </div>
