@@ -17,8 +17,36 @@
   <tbody>
     <% @todos.each do |todo| %>
       <tr>
-        <td><%= todo.title %></td>
-        <td><%= todo.notes %></td>
+        <td>
+          <span class="has-tooltip" data-toggle="tooltip" title="<%= "Created on #{todo.created_at.strftime("%m/%e/%Y at %w:%M %p")}, Last modified on #{todo.updated_at.strftime("%m/%e/%Y at %w:%M %p")}" %>">
+            <%= todo.title %>
+          </span>
+        </td>
+        <td>
+          <% if todo.notes? %>
+            <!-- Button trigger modal -->
+            <button class="btn btn-link" data-toggle="modal" data-target="#todo-<%= todo.id %>-notes">
+              View notes
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="todo-<%= todo.id %>-notes" tabindex="-1" role="dialog" aria-labelledby="todo-<%= todo.id %>-label" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="todo-<%= todo.id %>-label">Notes</h4>
+                  </div>
+                  <div class="modal-body">
+                    <%= todo.notes %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </td>
         <td><%= link_to 'Show', todo, class: 'btn btn-primary btn-xs' %></td>
         <td><%= link_to 'Edit', edit_todo_path(todo), class: 'btn btn-info btn-xs' %></td>
         <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
