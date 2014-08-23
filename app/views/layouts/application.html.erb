@@ -10,6 +10,13 @@
 
     <div id="main-container" class="container">
       <div class="row">
+        <div class="col-xs-12">
+          <% flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, class: "alert alert-dismissible alert-#{name}" %>
+          <% end -%>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-xs-3">
           <h3>Tealeaf Academy Todo</h3>
         </div>
