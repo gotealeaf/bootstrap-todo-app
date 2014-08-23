@@ -46,6 +46,10 @@
               </div>
             </div>
           <% end %>
+
+          <% if todo.notes? %>
+            <button type="button" class="btn btn-link has-popover" data-toggle="popover" title="Notes" data-content="<%= todo.notes %>">View notes (popover)</button>
+          <% end %>
         </td>
         <td><%= link_to 'Show', todo, class: 'btn btn-primary btn-xs' %></td>
         <td><%= link_to 'Edit', edit_todo_path(todo), class: 'btn btn-info btn-xs' %></td>
