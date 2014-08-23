@@ -3,6 +3,11 @@
     <h3>Tealeaf Academy Todo</h3>
   </div>
   <div class="col-xs-9">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="active"><%= link_to 'View list', todos_path %></li>
+      <li><%= link_to 'New todo', new_todo_path %></li>
+    </ul>
+
     <h1>Listing todos</h1>
 
     <table class="table">
