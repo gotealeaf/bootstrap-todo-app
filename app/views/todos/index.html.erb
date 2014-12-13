@@ -18,8 +18,11 @@
     <% @todos.each do |todo| %>
       <tr>
         <td>
-          <span class="has-tooltip" data-toggle="tooltip" title="<%= "Created on #{todo.created_at.strftime("%m/%e/%Y at %w:%M %p")}, Last modified on #{todo.updated_at.strftime("%m/%e/%Y at %w:%M %p")}" %>">
-            <%= todo.title %>
+          <!-- span class="has-tooltip" data-toggle="tooltip" title="<%= "Created on #{todo.created_at.strftime("%m/%e/%Y at %w:%M %p")}, Last modified on #{todo.updated_at.strftime("%m/%e/%Y at %w:%M %p")}" %>" -->
+            <!-- In-place editing based on https://github.com/klenis/bootstrap-x-editable-rails-demo-->
+            <a href="#" data-xeditable="true" data-pk="<%= todo.id %>" data-model="todo" data-name="title" data-url="<%= todo_url(todo) %>" data-title="Todo Title">
+              <%= todo.title %>
+            </a>
           </span>
         </td>
         <td>

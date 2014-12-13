@@ -40,3 +40,7 @@ gem 'spring',        group: :development
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+
+# In-place editing support
+# See for details: https://github.com/klenis/bootstrap-x-editable-rails-demo
+gem 'bootstrap-x-editable-rails'
