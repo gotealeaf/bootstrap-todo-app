@@ -55,8 +55,16 @@
           <% end %>
         </td>
         <td><%= link_to 'Show', todo, class: 'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Edit', edit_todo_path(todo), class: 'btn btn-info btn-xs' %></td>
-        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
+        <td>
+			<%= link_to edit_todo_path(todo), class: 'btn btn-info btn-xs' do %>
+				<i class="glyphicon glyphicon-edit"></i> Edit
+			<% end %>
+		</td>
+        <td>
+			<%= link_to todo, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' do %>
+				<i class="glyphicon glyphicon-remove"></i> Destroy
+			<% end %>
+		</td>
       </tr>
     <% end %>
   </tbody>
