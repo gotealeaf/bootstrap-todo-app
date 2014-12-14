@@ -1,3 +1,7 @@
 == README
 
 This repo follows the blog tutorial series which starts at http://www.gotealeaf.com/blog/integrating-rails-and-bootstrap-part-1.
+
+== IN-PLACE EDITING ADDED
+
+Dec. 13, 2014: See for details: https://github.com/klenis/bootstrap-x-editable-rails-demo. The tooltip popup window and the in-place editing popup window interfere with each other. Turn off the former if needed.

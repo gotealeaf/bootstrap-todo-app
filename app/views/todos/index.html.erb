@@ -18,8 +18,11 @@
     <% @todos.each do |todo| %>
       <tr>
         <td>
-          <span class="has-tooltip" data-toggle="tooltip" title="<%= "Created on #{todo.created_at.strftime("%m/%e/%Y at %w:%M %p")}, Last modified on #{todo.updated_at.strftime("%m/%e/%Y at %w:%M %p")}" %>">
-            <%= todo.title %>
+          <!-- span class="has-tooltip" data-toggle="tooltip" title="<%= "Created on #{todo.created_at.strftime("%m/%e/%Y at %w:%M %p")}, Last modified on #{todo.updated_at.strftime("%m/%e/%Y at %w:%M %p")}" %>" -->
+            <!-- In-place editing based on https://github.com/klenis/bootstrap-x-editable-rails-demo-->
+            <a href="#" data-xeditable="true" data-pk="<%= todo.id %>" data-model="todo" data-name="title" data-url="<%= todo_url(todo) %>" data-title="Todo Title">
+              <%= todo.title %>
+            </a>
           </span>
         </td>
         <td>
@@ -52,8 +55,16 @@
           <% end %>
         </td>
         <td><%= link_to 'Show', todo, class: 'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Edit', edit_todo_path(todo), class: 'btn btn-info btn-xs' %></td>
-        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
+        <td>
+			<%= link_to edit_todo_path(todo), class: 'btn btn-info btn-xs' do %>
+				<i class="glyphicon glyphicon-edit"></i> Edit
+			<% end %>
+		</td>
+        <td>
+			<%= link_to todo, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' do %>
+				<i class="glyphicon glyphicon-remove"></i> Destroy
+			<% end %>
+		</td>
       </tr>
     <% end %>
   </tbody>
